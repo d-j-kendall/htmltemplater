@@ -1,0 +1,3 @@
+include ':htmltemplater'
+include ':app'
+rootProject.name = "Html Templater Example"

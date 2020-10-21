@@ -1,0 +1,79 @@
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
+apply from: 'maven-push.gradle'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'com.dustinkendall.htmltemplater'
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                name = 'Html Templater'
+                description = 'Library used to insert objects into a predefined html template for webviews'
+                url = 'http://www.example.com/library'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'johnd'
+                        name = 'Dustin Kendall'
+                        email = 'dkendall100@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://example.com/my-library.git'
+                    developerConnection = 'scm:git:ssh://example.com/my-library.git'
+                    url = 'http://example.com/my-library/'
+                }
+            }
+        }
+    }
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.0"
+
+    defaultConfig {
+        minSdkVersion 25
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
