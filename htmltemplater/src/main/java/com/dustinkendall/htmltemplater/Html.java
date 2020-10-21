@@ -44,8 +44,9 @@ public class Html {
         objectHashMap = new HashMap<>();
     }
 
-    public void put(String varName, Object object){
+    public Html put(String varName, Object object){
         objectHashMap.put(varName,object);
+        return this;
     }
 
 
