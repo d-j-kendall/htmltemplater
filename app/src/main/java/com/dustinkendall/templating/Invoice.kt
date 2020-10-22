@@ -9,8 +9,8 @@ import kotlin.properties.Delegates
  */
 
 class Invoice(number: Int = 1234, date: Date = Date(System.currentTimeMillis())){
-    var number : Int by Delegates.notNull()
-    var date : Date by Delegates.notNull()
+    var number : Int = number
+    var date : Date = date
 
     init {
         this.number = number

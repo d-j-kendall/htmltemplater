@@ -8,6 +8,10 @@ import android.webkit.WebView
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.dustinkendall.htmltemplater.Html
+import java.io.BufferedReader
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.lang.StringBuilder
 
 
 /**
@@ -41,7 +45,7 @@ class MainActivity : AppCompatActivity(){
         var cust = Customer("Billy G.", "123 Easy St", "Chicago", "IL")
         var inv = Invoice(3526)
 
-        var row = applicationContext.assets.open("item_row.html");
+        var row : String = getStringFromInputStream(applicationContext.assets.open("item_row.html"))
         var itemsHtml = ""
         for(it in things) itemsHtml += Html(row).put("item", it).render()
 
@@ -54,5 +58,15 @@ class MainActivity : AppCompatActivity(){
             .put("invoice", inv)
             .put("total_price", things.stream().mapToDouble { item -> item.sub_total }.sum())
             .render()
+    }
+
+    fun getStringFromInputStream(inputStream: InputStream): String {
+        val htmlTemplate: StringBuilder = StringBuilder()
+        val reader = BufferedReader(InputStreamReader(inputStream))
+        var line: String? = null
+        while (reader.readLine().also { line = it } != null) {
+            htmlTemplate.append(line)
+        }
+        return htmlTemplate.toString()
     }
 }

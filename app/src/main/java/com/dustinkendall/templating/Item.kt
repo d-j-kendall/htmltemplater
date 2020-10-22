@@ -8,11 +8,11 @@ import kotlin.properties.Delegates
 
 class Item(name: String, description: String, qty: Int, rate: Double, sub_total : Double = qty*rate ){
 
-    var name: String by Delegates.notNull()
-    var description: String by Delegates.notNull()
-    var rate: Double by Delegates.notNull()
-    var qty: Int by Delegates.notNull()
-    var sub_total: Double by Delegates.notNull()
+    var name: String = name
+    var description: String = description
+    var rate: Double = rate
+    var qty: Int = qty
+    var sub_total: Double = sub_total
 
     init {
         this.name = name

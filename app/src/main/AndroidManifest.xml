@@ -12,7 +12,7 @@
         android:theme="@style/Theme.MyApplication" >
         <activity
             android:name=".MainActivity"
-            android:label="YourAppName"
+            android:label="Html Templater"
             android:theme="@style/Theme.MyApplication" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
