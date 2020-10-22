@@ -19,7 +19,7 @@ publishing {
             pom {
                 name = 'Html Templater'
                 description = 'Library used to insert objects into a predefined html template for webviews'
-                url = 'http://www.example.com/library'
+                url = 'https://github.com/dkendall100/htmltemplater'
                 licenses {
                     license {
                         name = 'The Apache License, Version 2.0'
@@ -28,15 +28,15 @@ publishing {
                 }
                 developers {
                     developer {
-                        id = 'johnd'
+                        id = 'dkendall100'
                         name = 'Dustin Kendall'
                         email = 'dkendall100@gmail.com'
                     }
                 }
                 scm {
-                    connection = 'scm:git:git://example.com/my-library.git'
-                    developerConnection = 'scm:git:ssh://example.com/my-library.git'
-                    url = 'http://example.com/my-library/'
+                    connection = 'scm:git@github.com:dkendall100/htmltemplater.git'
+                    developerConnection = 'scm:git@github.com:dkendall100/htmltemplater.git'
+                    url = 'https://github.com/dkendall100/htmltemplater'
                 }
             }
         }
